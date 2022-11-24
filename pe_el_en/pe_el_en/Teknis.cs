@@ -20,5 +20,11 @@ namespace pe_el_en
             new Login().Show();
             this.Hide();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            new InputPenggunaan().Show();
+            this.Hide();
+        }
     }
 }

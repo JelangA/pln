@@ -4,7 +4,7 @@
     <Compile Update="Admin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Form1.cs">
+    <Compile Update="InputPenggunaan.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Login.cs">
@@ -13,10 +13,22 @@
     <Compile Update="ManagePelanggan.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="ManagePetugas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Pembayaran.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="tagihan.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Teknis.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="User.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="UserLogin.cs">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>

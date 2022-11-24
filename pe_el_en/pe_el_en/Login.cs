@@ -36,39 +36,34 @@ namespace pe_el_en
             
             MySqlConnection conn = koneksi.GetKon();
             conn.Open();
-            cmd = new MySqlCommand("select * from type_user where username='" + txtEmail.Text + "' and password='" + txtPassword.Text + "'", conn);
+            cmd = new MySqlCommand("select * from petugas where username='" + txtEmail.Text + "' and password='" + txtPassword.Text + "'", conn);
             rd = cmd.ExecuteReader();
+
             if (rd.HasRows)
             {
-                    rd.Read();
-            if (rd[1].ToString() == "admin")
-            {
-                Admin formAdmin = new Admin();
-                formAdmin.Show();
-                this.Hide();
-            }
-            else if (rd[1].ToString() == "teknisi")
-            {
-                Teknis formMenu = new Teknis();
-                formMenu.Show();
-                this.Hide();
-            }
-            else if (rd[1].ToString() == "user")
-            {
-                User formMenu = new User();
-                formMenu.Show();
-                this.Hide();
-            }
-            else
-            {
-                MessageBox.Show("username atau password salah");
-            }
+                rd.Read();
+                if (rd[6].ToString() == "admin")
+                {
+                    Admin formAdmin = new Admin();
+                    formAdmin.Show();
+                    this.Hide();
+                }
+                else if (rd[6].ToString() == "teknisi")
+                {
+                    Teknis formMenu = new Teknis();
+                    formMenu.Show();
+                    this.Hide();
+                }
+                else
+                {
+                    MessageBox.Show("username atau password salah");
+                }
                  
             }else
             {
                 MessageBox.Show("username atau password salah");
             }
-
+            rd.Close();
             conn.Close();
         }
 
@@ -81,6 +76,12 @@ namespace pe_el_en
         private void Login_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            new UserLogin().Show();
+            this.Hide();
         }
     }
 }

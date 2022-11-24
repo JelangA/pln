@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\software\\source\\repos\\pe_el_en\\pe_el_en\\pe_el_en.csproj": {}
+    "C:\\Users\\software\\source\\repos\\pln\\pe_el_en\\pe_el_en\\pe_el_en.csproj": {}
   },
   "projects": {
-    "C:\\Users\\software\\source\\repos\\pe_el_en\\pe_el_en\\pe_el_en.csproj": {
+    "C:\\Users\\software\\source\\repos\\pln\\pe_el_en\\pe_el_en\\pe_el_en.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\software\\source\\repos\\pe_el_en\\pe_el_en\\pe_el_en.csproj",
+        "projectUniqueName": "C:\\Users\\software\\source\\repos\\pln\\pe_el_en\\pe_el_en\\pe_el_en.csproj",
         "projectName": "pe_el_en",
-        "projectPath": "C:\\Users\\software\\source\\repos\\pe_el_en\\pe_el_en\\pe_el_en.csproj",
+        "projectPath": "C:\\Users\\software\\source\\repos\\pln\\pe_el_en\\pe_el_en\\pe_el_en.csproj",
         "packagesPath": "C:\\Users\\software\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\software\\source\\repos\\pe_el_en\\pe_el_en\\obj\\",
+        "outputPath": "C:\\Users\\software\\source\\repos\\pln\\pe_el_en\\pe_el_en\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\software\\AppData\\Roaming\\NuGet\\NuGet.Config",

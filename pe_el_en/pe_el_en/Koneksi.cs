@@ -10,7 +10,7 @@ namespace pe_el_en
         public MySqlConnection GetKon()
         {
             MySqlConnection conn = new MySqlConnection();
-            conn.ConnectionString = "server=localhost;database=pln;username=root;password=";
+            conn.ConnectionString = "server=localhost;database=peelen;username=root;password=";
             return conn;
         }
 

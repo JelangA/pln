@@ -15,6 +15,7 @@ namespace pe_el_en
         private DataSet ds;
         private MySqlCommand cmd;
         private MySqlDataAdapter da;
+        private MySqlDataReader rd;
 
         Koneksi koneksi = new Koneksi();
 
@@ -26,6 +27,27 @@ namespace pe_el_en
         private void ManagePelanggan_Load(object sender, EventArgs e)
         {
             bersih();
+        }
+
+        void autoIncrement()
+        {
+            MySqlConnection conn = koneksi.GetKon();
+            conn.Open();
+            cmd = new MySqlCommand("select id_pelanggan from pelanggan order by id_pelanggan desc", conn);
+            rd = cmd.ExecuteReader();
+            rd.Read();
+            if (rd.HasRows)
+            {
+                txtId.Text = (Convert.ToInt32(rd[0].ToString()) + 1).ToString();
+                textBox1.Text = (Convert.ToInt32(rd[0].ToString()) + 1).ToString();
+            }
+            else
+            {
+                txtId.Text = "1";
+                textBox1.Text = "1";
+            }
+            rd.Close();
+            conn.Close();
         }
 
         void tampildata()
@@ -57,6 +79,7 @@ namespace pe_el_en
             txtNoKwh.Text = "";
             textBox1.Text = "";
             tampildata();
+            autoIncrement();
 
         }
 
@@ -141,6 +164,10 @@ namespace pe_el_en
             textBox1.Text = row.Cells[4].Value.ToString();
         }
 
-        
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            new Admin().Show();
+            this.Close();
+        }
     }
 }

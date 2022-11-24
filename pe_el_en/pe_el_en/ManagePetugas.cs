@@ -8,11 +8,16 @@ using System.Windows.Forms;
 
 namespace pe_el_en
 {
-    public partial class Form1 : Form
+    public partial class ManagePetugas : Form
     {
-        public Form1()
+        public ManagePetugas()
         {
             InitializeComponent();
+        }
+
+        private void btnSimpan_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -36,7 +36,7 @@ namespace pe_el_en
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(293, 106);
+            this.button1.Location = new System.Drawing.Point(85, 84);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(162, 51);
             this.button1.TabIndex = 0;
@@ -45,7 +45,7 @@ namespace pe_el_en
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(293, 197);
+            this.button2.Location = new System.Drawing.Point(85, 165);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(162, 51);
             this.button2.TabIndex = 0;
@@ -54,7 +54,7 @@ namespace pe_el_en
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(293, 281);
+            this.button3.Location = new System.Drawing.Point(85, 252);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(162, 51);
             this.button3.TabIndex = 0;
@@ -66,7 +66,7 @@ namespace pe_el_en
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(752, 377);
+            this.ClientSize = new System.Drawing.Size(355, 377);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);

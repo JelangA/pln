@@ -1,3 +1,9 @@
 is_global = true
+build_property.ApplicationManifest = 
+build_property.StartupObject = 
+build_property.ApplicationDefaultFont = 
+build_property.ApplicationHighDpiMode = 
+build_property.ApplicationUseCompatibleTextRendering = 
+build_property.ApplicationVisualStyles = 
 build_property.RootNamespace = pe_el_en
-build_property.ProjectDir = C:\Users\software\source\repos\pln\pe_el_en\pe_el_en\
+build_property.ProjectDir = D:\jelang\desktop\pln\pe_el_en\pe_el_en\

@@ -12,7 +12,7 @@ namespace pe_el_en
     public partial class InputPenggunaan : Form
     {
 
-        Koneksi koneksi = new Koneksi();
+        koneksi1 koneksi = new koneksi1();
 
         DataSet ds;
         MySqlCommand cmd;
@@ -22,24 +22,61 @@ namespace pe_el_en
         {
             InitializeComponent();
         }
-
+        private string Autoid()
+        {
+            try
+            {
+                MySqlConnection conn = koneksi.GetKon();
+                conn.Open();
+                cmd = new MySqlCommand("select id_pengunaan from penggunaan order by id_penggunaan desc", conn);
+                rd = cmd.ExecuteReader();
+                rd.Read();
+                if (rd.HasRows)
+                {
+                    string id = rd["penggunaan"].ToString();
+                    string angka = id.Substring(4, 4);
+                    int num = Convert.ToInt32(angka) + 1;
+                    string result = num.ToString();
+                    if (result.Length == 1)
+                    {
+                        result = "000" + result;
+                    }
+                    else if (result.Length == 2)
+                    {
+                        result = "00" + result;
+                    }
+                    else if (result.Length == 3)
+                    {
+                        result = "0" + result;
+                    }
+                    else if (result.Length == 4)
+                    {
+                        result = "" + result;
+                    }
+                    string tanggal = DateTime.Now.ToString("ddMM");
+                    string result2 = tanggal + result;
+                    return result2;
+                }
+                else
+                {
+                    string result = "0001";
+                    string tanggal = DateTime.Now.ToString("ddMM");
+                    string result2 = tanggal + result;
+                    return result2;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            return "";
+        } 
         private void InputPenggunaan_Load(object sender, EventArgs e)
         {
             bersih();
         }
 
-        void bersih()
-        {
-            textBox1.Text = "";
-            textBox2.Text = "";
-            textBox3.Text = "";
-            textBox4.Text = "";
-            textBox5.Text = "";
-            tampildata();
-            autoIncrement();
-        }
-
-        void cmb()
+        void cmbPelanggan()
         {
             //get data IdOrder from database to combobox1 
             MySqlConnection conn = koneksi.GetKon();
@@ -47,11 +84,11 @@ namespace pe_el_en
             try
 
             {
-                cmd = new MySqlCommand("SELECT DISTINCT TOP 10 Id,OrderId FROM OrderDetaile ORDER BY OrderId", conn);
+                cmd = new MySqlCommand("select * from pelanggan", conn);
                 rd = cmd.ExecuteReader();
                 while (rd.Read())
                 {
-                    string sName = rd.GetString(1);
+                    string sName = rd.GetString(0);
                     comboBox1.Items.Add(sName);
                 }
             }
@@ -61,8 +98,70 @@ namespace pe_el_en
             }
             conn.Close();
             rd.Close();
-
         }
+
+        void cmbPetugas()
+        {
+            //get data IdOrder from database to combobox1 
+            MySqlConnection conn = koneksi.GetKon();
+            conn.Open();
+            try
+
+            {
+                cmd = new MySqlCommand("select * from petugas", conn);
+                rd = cmd.ExecuteReader();
+                while (rd.Read())
+                {
+                    string sName = rd.GetString(0);
+                    comboBox2.Items.Add(sName);
+                }
+            }
+            catch (Exception g)
+            {
+                MessageBox.Show(g.Message);
+            }
+            conn.Close();
+            rd.Close();
+        }
+
+        void bersih()
+        {
+            txtId.Text = Autoid().ToString();
+            txtBulan.Text = "";
+            txttahun.Text = "";
+            txtAwal.Text = "";
+            txtAkhir.Text = "";
+            comboBox1.Text = string.Empty; 
+            comboBox2.Text = string.Empty;
+            tampildata();
+            cmbPelanggan();
+            cmbPetugas();
+        }
+
+        //void cmb()
+        //{
+        //    //get data IdOrder from database to combobox1 
+        //    MySqlConnection conn = koneksi.GetKon();
+        //    conn.Open();
+        //    try
+
+        //    {
+        //        cmd = new MySqlCommand("SELECT DISTINCT TOP 10 Id,OrderId FROM OrderDetaile ORDER BY OrderId", conn);
+        //        rd = cmd.ExecuteReader();
+        //        while (rd.Read())
+        //        {
+        //            string sName = rd.GetString(1);
+        //            comboBox1.Items.Add(sName);
+        //        }
+        //    }
+        //    catch (Exception g)
+        //    {
+        //        MessageBox.Show(g.Message);
+        //    }
+        //    conn.Close();
+        //    rd.Close();
+
+        //}
 
         void tampildata()
         {
@@ -86,24 +185,24 @@ namespace pe_el_en
             }
         }
 
-        void autoIncrement()
-        {
-            MySqlConnection conn = koneksi.GetKon();
-            conn.Open();
-            cmd = new MySqlCommand("select id_penggunaan from penggunaan order by id_penggunaan desc", conn);
-            rd = cmd.ExecuteReader();
-            rd.Read();
-            if (rd.HasRows)
-            {
-                textBox1.Text = (Convert.ToInt32(rd[0].ToString()) + 1).ToString();
-            }
-            else
-            {
-                textBox1.Text = "1";
-            }
-            rd.Close();
-            conn.Close();
-        }
+        //void autoIncrement()
+        //{
+        //    MySqlConnection conn = koneksi.GetKon();
+        //    conn.Open();
+        //    cmd = new MySqlCommand("select id_penggunaan from penggunaan order by id_penggunaan desc", conn);
+        //    rd = cmd.ExecuteReader();
+        //    rd.Read();
+        //    if (rd.HasRows)
+        //    {
+        //        textBox1.Text = (Convert.ToInt32(rd[0].ToString()) + 1).ToString();
+        //    }
+        //    else
+        //    {
+        //        textBox1.Text = "1";
+        //    }
+        //    rd.Close();
+        //    conn.Close();
+        //}
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -112,12 +211,13 @@ namespace pe_el_en
                 MySqlConnection conn = koneksi.GetKon();
                 conn.Open();
                 cmd = new MySqlCommand("insert into penggunaan values('" +
-                           textBox1.Text + "','" +
-                           textBox2.Text + "','" +
-                           textBox3.Text + "','" +
-                           textBox4.Text + "','" +
-                           textBox5.Text + "','" +
-                           comboBox1.Text + "')", conn);
+                           txtId.Text + "','" +
+                           txtBulan.Text + "','" +
+                           txttahun.Text + "','" +
+                           txtAwal.Text + "','" +
+                           txtAkhir.Text + "','" +
+                           comboBox1.Text + "','" +
+                           comboBox2.Text + "')", conn);
                 cmd.ExecuteNonQuery();
                 MessageBox.Show("berhasil di simpan");
                 conn.Close();
@@ -136,11 +236,13 @@ namespace pe_el_en
                 MySqlConnection conn = koneksi.GetKon();
                 conn.Open();
                 cmd = new MySqlCommand("update penggunaan set bulan ='" +
-                           textBox2.Text + "',tahun='" +
-                           textBox3.Text + "',meter_awal='" +
-                           textBox4.Text + "',meter_akhir= '" +
-                           textBox5.Text + "'where id_penggunaan= '"  +
-                           textBox1.Text + "'", conn);
+                           txtBulan.Text + "',tahun='" +
+                           txttahun.Text + "',meter_awal='" +
+                           txtAwal.Text + "',meter_akhir= '" +
+                           txtAkhir.Text + "',id_pelanggan= '" +
+                           comboBox1.Text + "',id_petugas= '" +
+                           comboBox2.Text + "'where id_penggunaan= '"  +
+                           txtId.Text + "'", conn);
                 cmd.ExecuteNonQuery();
                 MessageBox.Show("berhasil di edit");
                 conn.Close();
@@ -155,11 +257,11 @@ namespace pe_el_en
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             DataGridViewRow row = this.dataGridView1.Rows[e.RowIndex];
-            textBox1.Text = row.Cells[0].Value.ToString();
-            textBox2.Text = row.Cells[1].Value.ToString();
-            textBox3.Text = row.Cells[2].Value.ToString();
-            textBox4.Text = row.Cells[3].Value.ToString();
-            textBox5.Text = row.Cells[4].Value.ToString();
+            txtId.Text = row.Cells[0].Value.ToString();
+            txtBulan.Text = row.Cells[1].Value.ToString();
+            txttahun.Text = row.Cells[2].Value.ToString();
+            txtAwal.Text = row.Cells[3].Value.ToString();
+            txtAkhir.Text = row.Cells[4].Value.ToString();
             comboBox1.Text = row.Cells[5].Value.ToString();
 
         }
@@ -171,7 +273,7 @@ namespace pe_el_en
                 MySqlConnection conn = koneksi.GetKon();
                 conn.Open();
                 cmd = new MySqlCommand("delete from penggunaan where id_penggunaan='"
-                    + textBox1.Text + "'", conn);
+                    + txtId.Text + "'", conn);
                 cmd.ExecuteNonQuery();
                 MessageBox.Show("berhasil di delete");
                 conn.Close();

@@ -44,13 +44,17 @@ namespace pe_el_en
             this.btnBatal = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBox3 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPelanggan)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(67, 43);
+            this.label1.Location = new System.Drawing.Point(22, 50);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(77, 15);
             this.label1.TabIndex = 0;
@@ -59,7 +63,7 @@ namespace pe_el_en
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(67, 84);
+            this.label2.Location = new System.Drawing.Point(22, 89);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(98, 15);
             this.label2.TabIndex = 1;
@@ -68,7 +72,7 @@ namespace pe_el_en
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(426, 45);
+            this.label3.Location = new System.Drawing.Point(278, 61);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(45, 15);
             this.label3.TabIndex = 2;
@@ -77,7 +81,7 @@ namespace pe_el_en
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(426, 84);
+            this.label4.Location = new System.Drawing.Point(278, 87);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(75, 15);
             this.label4.TabIndex = 3;
@@ -85,30 +89,30 @@ namespace pe_el_en
             // 
             // txtId
             // 
-            this.txtId.Location = new System.Drawing.Point(192, 40);
+            this.txtId.Location = new System.Drawing.Point(126, 50);
             this.txtId.Name = "txtId";
             this.txtId.Size = new System.Drawing.Size(35, 23);
             this.txtId.TabIndex = 4;
             // 
             // txtNama
             // 
-            this.txtNama.Location = new System.Drawing.Point(192, 81);
+            this.txtNama.Location = new System.Drawing.Point(126, 86);
             this.txtNama.Name = "txtNama";
-            this.txtNama.Size = new System.Drawing.Size(162, 23);
+            this.txtNama.Size = new System.Drawing.Size(130, 23);
             this.txtNama.TabIndex = 5;
             // 
             // txtAlamat
             // 
-            this.txtAlamat.Location = new System.Drawing.Point(551, 42);
+            this.txtAlamat.Location = new System.Drawing.Point(362, 58);
             this.txtAlamat.Name = "txtAlamat";
-            this.txtAlamat.Size = new System.Drawing.Size(162, 23);
+            this.txtAlamat.Size = new System.Drawing.Size(121, 23);
             this.txtAlamat.TabIndex = 6;
             // 
             // txtNoKwh
             // 
-            this.txtNoKwh.Location = new System.Drawing.Point(551, 81);
+            this.txtNoKwh.Location = new System.Drawing.Point(362, 87);
             this.txtNoKwh.Name = "txtNoKwh";
-            this.txtNoKwh.Size = new System.Drawing.Size(162, 23);
+            this.txtNoKwh.Size = new System.Drawing.Size(121, 23);
             this.txtNoKwh.TabIndex = 7;
             // 
             // dataGridViewPelanggan
@@ -164,7 +168,7 @@ namespace pe_el_en
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(246, 40);
+            this.textBox1.Location = new System.Drawing.Point(176, 50);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(34, 23);
             this.textBox1.TabIndex = 11;
@@ -179,6 +183,38 @@ namespace pe_el_en
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(510, 63);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(60, 15);
+            this.label5.TabIndex = 2;
+            this.label5.Text = "Username";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(510, 89);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(57, 15);
+            this.label6.TabIndex = 3;
+            this.label6.Text = "Password";
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(594, 60);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(162, 23);
+            this.textBox2.TabIndex = 6;
+            // 
+            // textBox3
+            // 
+            this.textBox3.Location = new System.Drawing.Point(594, 89);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(162, 23);
+            this.textBox3.TabIndex = 7;
+            // 
             // ManagePelanggan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -191,10 +227,14 @@ namespace pe_el_en
             this.Controls.Add(this.btnEdit);
             this.Controls.Add(this.btnSimpan);
             this.Controls.Add(this.dataGridViewPelanggan);
+            this.Controls.Add(this.textBox3);
             this.Controls.Add(this.txtNoKwh);
+            this.Controls.Add(this.textBox2);
             this.Controls.Add(this.txtAlamat);
             this.Controls.Add(this.txtNama);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.txtId);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -225,5 +265,9 @@ namespace pe_el_en
         private System.Windows.Forms.Button btnBatal;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox textBox3;
     }
 }

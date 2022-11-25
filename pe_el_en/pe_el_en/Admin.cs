@@ -17,7 +17,7 @@ namespace pe_el_en
 
         private void button1_Click(object sender, EventArgs e)
         {
-            new ManagePelanggan().Show();
+            new ManagePelanggans().Show();
             this.Hide();
         }
 
@@ -30,6 +30,18 @@ namespace pe_el_en
         private void button2_Click(object sender, EventArgs e)
         {
             new tagihan().Show();
+            this.Hide();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            new ManagePetugas().Show();
+            this.Hide();
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            new TarifDenda().Show();
             this.Hide();
         }
     }

@@ -13,6 +13,9 @@
     <Compile Update="ManagePelanggan.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="ManagePelanggans.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="ManagePetugas.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -22,13 +25,13 @@
     <Compile Update="tagihan.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="TarifDenda.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Teknis.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="User.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="UserLogin.cs">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>

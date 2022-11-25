@@ -18,7 +18,7 @@ namespace pe_el_en
         private MySqlCommand cmd;
         private MySqlDataReader rd;
 
-        Koneksi koneksi = new Koneksi();
+        koneksi1 koneksi = new koneksi1();
 
         public Login()
         {
@@ -36,21 +36,27 @@ namespace pe_el_en
             
             MySqlConnection conn = koneksi.GetKon();
             conn.Open();
-            cmd = new MySqlCommand("select * from petugas where username='" + txtEmail.Text + "' and password='" + txtPassword.Text + "'", conn);
+            cmd = new MySqlCommand("select * from type_user where username='" + txtEmail.Text + "' and password='" + txtPassword.Text + "'", conn);
             rd = cmd.ExecuteReader();
 
             if (rd.HasRows)
             {
                 rd.Read();
-                if (rd[6].ToString() == "admin")
+                if (rd[1].ToString() == "admin")
                 {
                     Admin formAdmin = new Admin();
                     formAdmin.Show();
                     this.Hide();
                 }
-                else if (rd[6].ToString() == "teknisi")
+                else if (rd[1].ToString() == "teknisi")
                 {
                     Teknis formMenu = new Teknis();
+                    formMenu.Show();
+                    this.Hide();
+                }
+                else if (rd[1].ToString() == "pelanggan")
+                {
+                    User formMenu = new User();
                     formMenu.Show();
                     this.Hide();
                 }
@@ -78,10 +84,5 @@ namespace pe_el_en
 
         }
 
-        private void button1_Click_1(object sender, EventArgs e)
-        {
-            new UserLogin().Show();
-            this.Hide();
-        }
     }
 }

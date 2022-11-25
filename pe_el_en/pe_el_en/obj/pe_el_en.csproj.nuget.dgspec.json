@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\software\\source\\repos\\pln\\pe_el_en\\pe_el_en\\pe_el_en.csproj": {}
+    "D:\\jelang\\desktop\\pln\\pe_el_en\\pe_el_en\\pe_el_en.csproj": {}
   },
   "projects": {
-    "C:\\Users\\software\\source\\repos\\pln\\pe_el_en\\pe_el_en\\pe_el_en.csproj": {
+    "D:\\jelang\\desktop\\pln\\pe_el_en\\pe_el_en\\pe_el_en.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\software\\source\\repos\\pln\\pe_el_en\\pe_el_en\\pe_el_en.csproj",
+        "projectUniqueName": "D:\\jelang\\desktop\\pln\\pe_el_en\\pe_el_en\\pe_el_en.csproj",
         "projectName": "pe_el_en",
-        "projectPath": "C:\\Users\\software\\source\\repos\\pln\\pe_el_en\\pe_el_en\\pe_el_en.csproj",
-        "packagesPath": "C:\\Users\\software\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\software\\source\\repos\\pln\\pe_el_en\\pe_el_en\\obj\\",
+        "projectPath": "D:\\jelang\\desktop\\pln\\pe_el_en\\pe_el_en\\pe_el_en.csproj",
+        "packagesPath": "C:\\Users\\USER\\.nuget\\packages\\",
+        "outputPath": "D:\\jelang\\desktop\\pln\\pe_el_en\\pe_el_en\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\software\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\USER\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -45,7 +49,8 @@
             "net47",
             "net471",
             "net472",
-            "net48"
+            "net48",
+            "net481"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -57,7 +62,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.413\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     }

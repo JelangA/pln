@@ -1,15 +1,16 @@
-﻿using MySql.Data.MySqlClient;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using MySql.Data.MySqlClient;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace pe_el_en
 {
-    public partial class ManagePetugas : Form
+    public partial class ManagePelanggans : Form
     {
         private DataSet ds;
         private MySqlCommand cmd, cmd2;
@@ -17,25 +18,24 @@ namespace pe_el_en
         private MySqlDataReader rd;
 
         koneksi1 koneksi = new koneksi1();
-        public ManagePetugas()
+        public ManagePelanggans()
         {
             InitializeComponent();
         }
-
-        void autoIncrementpetugas()
+        void autoIncrement()
         {
             MySqlConnection conn = koneksi.GetKon();
             conn.Open();
-            cmd = new MySqlCommand("select id_petugas from petugas order by id_petugas desc", conn);
+            cmd = new MySqlCommand("select id_pelanggan from pelanggan order by id_pelanggan desc", conn);
             rd = cmd.ExecuteReader();
             rd.Read();
             if (rd.HasRows)
             {
-                txtId.Text = (Convert.ToInt32(rd[0].ToString()) + 1).ToString();      
+                txtId.Text = (Convert.ToInt32(rd[0].ToString()) + 1).ToString();
             }
             else
             {
-                txtId.Text = "2001";
+                txtId.Text = "3001";
             }
             rd.Close();
             conn.Close();
@@ -59,7 +59,6 @@ namespace pe_el_en
             rd.Close();
             conn.Close();
         }
-
         void tampildata()
         {
             try
@@ -68,12 +67,12 @@ namespace pe_el_en
                 MySqlConnection conn = koneksi.GetKon();
                 conn.Open();
                 cmd = new MySqlCommand(
-                    "select * from petugas,type_user where petugas.id_user = type_user.id_user", conn);
+                    "select * from pelanggan,type_user where pelanggan.id_user = type_user.id_user", conn);
                 ds = new DataSet();
                 da = new MySqlDataAdapter(cmd);
-                da.Fill(ds, "petugas");
-                dataGridView1.DataSource = ds;
-                dataGridView1.DataMember = "petugas";
+                da.Fill(ds, "pelanggan");
+                dataGridViewPelanggan.DataSource = ds;
+                dataGridViewPelanggan.DataMember = "pelanggan";
                 conn.Close();
 
             }
@@ -82,18 +81,18 @@ namespace pe_el_en
                 MessageBox.Show(x.ToString());
             }
         }
-
         void bersih()
         {
             txtId.Text = "";
             txtNama.Text = "";
+            txtAlamat.Text = "";
+            txtNoKwh.Text = "";
             txtIdUser.Text = "";
             txtUsername.Text = "";
             txtPassword.Text = "";
-            comboBox1.Text = String.Empty;
             tampildata();
+            autoIncrement();
             autoIncrementIduser();
-            autoIncrementpetugas();
 
         }
 
@@ -104,53 +103,18 @@ namespace pe_el_en
                 MySqlConnection conn = koneksi.GetKon();
                 conn.Open();
                 cmd = new MySqlCommand("insert into type_user values('" +
-                           txtIdUser.Text + "','" +
-                           comboBox1.Text + "','" +
+                           txtIdUser.Text + "','pelanggan','" +
                            txtUsername.Text + "','" +
                            txtPassword.Text + "')", conn);
                 cmd.ExecuteNonQuery();
-                cmd2 = new MySqlCommand("insert into petugas values('" +
+                cmd2 = new MySqlCommand("insert into pelanggan values('" +
                            txtId.Text + "','" +
                            txtNama.Text + "','" +
-                           txtNotelpon.Text + "','" +
-                           comboBox1.Text + "','" +
+                           txtAlamat.Text + "','" +
+                           txtNoKwh.Text + "','" +
                            txtIdUser.Text + "')", conn);
                 cmd2.ExecuteNonQuery();
                 MessageBox.Show("berhasil di simpan");
-                conn.Close();
-                bersih();
-            }
-            catch (Exception x)
-            {
-                MessageBox.Show(x.ToString());
-            }
-        }
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            DataGridViewRow row = this.dataGridView1.Rows[e.RowIndex];
-            txtId.Text = row.Cells["id_petugas"].Value.ToString();
-            txtNama.Text = row.Cells["nama"].Value.ToString();
-            txtNotelpon.Text = row.Cells["no_telpon"].Value.ToString();
-            txtIdUser.Text = row.Cells["id_user"].Value.ToString();
-            txtUsername.Text = row.Cells["username"].Value.ToString();
-            txtPassword.Text = row.Cells["password"].Value.ToString();
-            comboBox1.Text = row.Cells["type_user"].Value.ToString();
-        }
-
-        private void btnDelete_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                MySqlConnection conn = koneksi.GetKon();
-                conn.Open();
-                cmd2 = new MySqlCommand("delete from petugas where id_petugas='"
-                   + txtId.Text + "'", conn);
-                cmd2.ExecuteNonQuery();
-                cmd = new MySqlCommand("delete from type_user where id_user='"
-                    + txtIdUser.Text + "'", conn);
-                cmd.ExecuteNonQuery();
-                MessageBox.Show("berhasil di delete");
                 conn.Close();
                 bersih();
             }
@@ -166,19 +130,53 @@ namespace pe_el_en
             {
                 MySqlConnection conn = koneksi.GetKon();
                 conn.Open();
-                cmd = new MySqlCommand("UPDATE type_user SET type_user='" +
-                    comboBox1.Text + "',username='" +
-                    txtUsername.Text + "',password='" +
-                    txtPassword.Text + "'WHERE id_user='" +
+                cmd = new MySqlCommand("UPDATE type_user SET username='" +
+                    txtUsername.Text +"',password='" + 
+                    txtPassword.Text + "'WHERE id_user='" + 
                     txtIdUser.Text + "'", conn);
                 cmd.ExecuteNonQuery();
-                cmd2 = new MySqlCommand("update petugas set nama='" +
-                           txtNama.Text + "',no_telpon='" +
-                           txtNotelpon.Text + "',jabatan='" +
-                           comboBox1.Text + "'where id_petugas='" +
+                cmd2 = new MySqlCommand("update pelanggan set nama_pelanggan='" +
+                           txtNama.Text + "',alamat='" +
+                           txtAlamat.Text + "',nomor_kwh='" +
+                           txtNoKwh.Text + "'where id_pelanggan='" +
                            txtId.Text + "'", conn);
                 cmd2.ExecuteNonQuery();
                 MessageBox.Show("berhasil di simpan");
+                conn.Close();
+                bersih();
+            }
+            catch (Exception x)
+            {
+                MessageBox.Show(x.ToString());
+            }
+        }
+
+        private void dataGridViewPelanggan_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            DataGridViewRow row = this.dataGridViewPelanggan.Rows[e.RowIndex];
+            txtId.Text = row.Cells["id_pelanggan"].Value.ToString();
+            txtNama.Text = row.Cells["nama_pelanggan"].Value.ToString();
+            txtAlamat.Text = row.Cells["alamat"].Value.ToString();
+            txtNoKwh.Text = row.Cells["nomor_kwh"].Value.ToString();
+            txtIdUser.Text = row.Cells["id_user"].Value.ToString();
+            txtUsername.Text = row.Cells["username"].Value.ToString();
+            txtPassword.Text = row.Cells["password"].Value.ToString();
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+
+            try
+            {
+                MySqlConnection conn = koneksi.GetKon();
+                conn.Open();
+                cmd2 = new MySqlCommand("delete from pelanggan where id_pelanggan='"
+                   + txtId.Text + "'", conn);
+                cmd2.ExecuteNonQuery();
+                cmd = new MySqlCommand("delete from type_user where id_user='"
+                    + txtIdUser.Text + "'", conn);
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("berhasil di delete");
                 conn.Close();
                 bersih();
             }
@@ -194,7 +192,7 @@ namespace pe_el_en
             this.Hide();
         }
 
-        private void ManagePetugas_Load(object sender, EventArgs e)
+        private void ManagePelanggans_Load(object sender, EventArgs e)
         {
             bersih();
         }

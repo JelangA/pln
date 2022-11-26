@@ -134,7 +134,7 @@ namespace pe_el_en
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(63, 98);
+            this.label3.Location = new System.Drawing.Point(67, 137);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(54, 15);
             this.label3.TabIndex = 11;
@@ -143,7 +143,7 @@ namespace pe_el_en
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(63, 137);
+            this.label6.Location = new System.Drawing.Point(67, 98);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(42, 15);
             this.label6.TabIndex = 12;
@@ -225,7 +225,7 @@ namespace pe_el_en
             // comboBox2
             // 
             this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(146, 95);
+            this.comboBox2.Location = new System.Drawing.Point(150, 90);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(121, 23);
             this.comboBox2.TabIndex = 17;
@@ -233,7 +233,7 @@ namespace pe_el_en
             // comboBox3
             // 
             this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(146, 137);
+            this.comboBox3.Location = new System.Drawing.Point(150, 134);
             this.comboBox3.Name = "comboBox3";
             this.comboBox3.Size = new System.Drawing.Size(121, 23);
             this.comboBox3.TabIndex = 18;

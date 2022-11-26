@@ -44,5 +44,11 @@ namespace pe_el_en
             new TarifDenda().Show();
             this.Hide();
         }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            new Pembayaran().Show();
+            this.Hide();
+        }
     }
 }

@@ -66,28 +66,28 @@ namespace pe_el_en
             // 
             // txtBulan
             // 
-            this.txtBulan.Location = new System.Drawing.Point(512, 158);
+            this.txtBulan.Location = new System.Drawing.Point(512, 69);
             this.txtBulan.Name = "txtBulan";
             this.txtBulan.Size = new System.Drawing.Size(181, 23);
             this.txtBulan.TabIndex = 1;
             // 
             // txttahun
             // 
-            this.txttahun.Location = new System.Drawing.Point(512, 202);
+            this.txttahun.Location = new System.Drawing.Point(512, 113);
             this.txttahun.Name = "txttahun";
             this.txttahun.Size = new System.Drawing.Size(181, 23);
             this.txttahun.TabIndex = 3;
             // 
             // txtAwal
             // 
-            this.txtAwal.Location = new System.Drawing.Point(512, 74);
+            this.txtAwal.Location = new System.Drawing.Point(512, 159);
             this.txtAwal.Name = "txtAwal";
             this.txtAwal.Size = new System.Drawing.Size(181, 23);
             this.txtAwal.TabIndex = 1;
             // 
             // txtAkhir
             // 
-            this.txtAkhir.Location = new System.Drawing.Point(512, 114);
+            this.txtAkhir.Location = new System.Drawing.Point(512, 199);
             this.txtAkhir.Name = "txtAkhir";
             this.txtAkhir.Size = new System.Drawing.Size(181, 23);
             this.txtAkhir.TabIndex = 1;
@@ -111,7 +111,7 @@ namespace pe_el_en
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(448, 166);
+            this.label2.Location = new System.Drawing.Point(448, 77);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(37, 15);
             this.label2.TabIndex = 2;
@@ -120,7 +120,7 @@ namespace pe_el_en
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(448, 205);
+            this.label3.Location = new System.Drawing.Point(448, 116);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(39, 15);
             this.label3.TabIndex = 2;
@@ -129,7 +129,7 @@ namespace pe_el_en
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(418, 77);
+            this.label4.Location = new System.Drawing.Point(418, 162);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(67, 15);
             this.label4.TabIndex = 2;
@@ -138,7 +138,7 @@ namespace pe_el_en
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(418, 117);
+            this.label5.Location = new System.Drawing.Point(418, 202);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(69, 15);
             this.label5.TabIndex = 2;

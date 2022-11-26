@@ -86,7 +86,6 @@ D:\jelang\desktop\pln\pe_el_en\pe_el_en\obj\Debug\netcoreapp3.1\pe_el_en.csproj.
 D:\jelang\desktop\pln\pe_el_en\pe_el_en\obj\Debug\netcoreapp3.1\pe_el_en.Admin.resources
 D:\jelang\desktop\pln\pe_el_en\pe_el_en\obj\Debug\netcoreapp3.1\pe_el_en.InputPenggunaan.resources
 D:\jelang\desktop\pln\pe_el_en\pe_el_en\obj\Debug\netcoreapp3.1\pe_el_en.Login.resources
-D:\jelang\desktop\pln\pe_el_en\pe_el_en\obj\Debug\netcoreapp3.1\pe_el_en.ManagePelanggan.resources
 D:\jelang\desktop\pln\pe_el_en\pe_el_en\obj\Debug\netcoreapp3.1\pe_el_en.ManagePetugas.resources
 D:\jelang\desktop\pln\pe_el_en\pe_el_en\obj\Debug\netcoreapp3.1\pe_el_en.Pembayaran.resources
 D:\jelang\desktop\pln\pe_el_en\pe_el_en\obj\Debug\netcoreapp3.1\pe_el_en.tagihan.resources

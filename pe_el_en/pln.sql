@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 25, 2022 at 09:57 PM
+-- Generation Time: Nov 26, 2022 at 03:39 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 7.4.29
 
@@ -31,6 +31,13 @@ CREATE TABLE `denda` (
   `id_denda` int(10) NOT NULL,
   `jumlah_denda` int(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `denda`
+--
+
+INSERT INTO `denda` (`id_denda`, `jumlah_denda`) VALUES
+(9001, 50000);
 
 -- --------------------------------------------------------
 
@@ -62,8 +69,7 @@ INSERT INTO `pelanggan` (`id_pelanggan`, `nama_pelanggan`, `alamat`, `nomor_kwh`
 CREATE TABLE `pembayaran` (
   `id_pembayaran` int(10) NOT NULL,
   `id_tagihan` int(10) NOT NULL,
-  `tanggal_pembayaran` date NOT NULL,
-  `bulan_bayar` varchar(50) NOT NULL,
+  `tanggal_pembayaran` varchar(50) NOT NULL,
   `biaya_admin` int(50) NOT NULL,
   `total_bayar` int(50) NOT NULL,
   `id_petugas` int(10) NOT NULL
@@ -90,7 +96,7 @@ CREATE TABLE `penggunaan` (
 --
 
 INSERT INTO `penggunaan` (`id_penggunaan`, `bulan`, `tahun`, `meter_awal`, `meter_akhir`, `id_pelanggan`, `id_petugas`) VALUES
-(26110001, '3', '1', 13, 1, 3001, 2002);
+(26110001, 'maret', '2021', 29, 45, 3001, 2002);
 
 -- --------------------------------------------------------
 
@@ -141,6 +147,13 @@ CREATE TABLE `tarif` (
   `daya` double NOT NULL,
   `tarifperkwh` int(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tarif`
+--
+
+INSERT INTO `tarif` (`id_tarif`, `daya`, `tarifperkwh`) VALUES
+(8001, 1000, 50000);
 
 -- --------------------------------------------------------
 

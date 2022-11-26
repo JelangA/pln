@@ -28,12 +28,12 @@ namespace pe_el_en
             {
                 MySqlConnection conn = koneksi.GetKon();
                 conn.Open();
-                cmd = new MySqlCommand("select id_pengunaan from penggunaan order by id_penggunaan desc", conn);
+                cmd = new MySqlCommand("select id_penggunaan from penggunaan order by id_penggunaan desc", conn);
                 rd = cmd.ExecuteReader();
                 rd.Read();
                 if (rd.HasRows)
                 {
-                    string id = rd["penggunaan"].ToString();
+                    string id = rd[0].ToString();
                     string angka = id.Substring(4, 4);
                     int num = Convert.ToInt32(angka) + 1;
                     string result = num.ToString();
@@ -257,13 +257,13 @@ namespace pe_el_en
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             DataGridViewRow row = this.dataGridView1.Rows[e.RowIndex];
-            txtId.Text = row.Cells[0].Value.ToString();
-            txtBulan.Text = row.Cells[1].Value.ToString();
-            txttahun.Text = row.Cells[2].Value.ToString();
-            txtAwal.Text = row.Cells[3].Value.ToString();
-            txtAkhir.Text = row.Cells[4].Value.ToString();
-            comboBox1.Text = row.Cells[5].Value.ToString();
-
+            txtId.Text = row.Cells["id_penggunaan"].Value.ToString();
+            txtBulan.Text = row.Cells["bulan"].Value.ToString();
+            txttahun.Text = row.Cells["tahun"].Value.ToString();
+            txtAwal.Text = row.Cells["meter_awal"].Value.ToString();
+            txtAkhir.Text = row.Cells["meter_akhir"].Value.ToString();
+            comboBox1.Text = row.Cells["id_pelanggan"].Value.ToString();
+            comboBox2.Text = row.Cells["id_petugas"].Value.ToString();
         }
 
         private void button3_Click(object sender, EventArgs e)

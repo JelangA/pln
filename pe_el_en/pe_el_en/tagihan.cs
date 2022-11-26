@@ -85,6 +85,8 @@ namespace pe_el_en
             textBox7.Text = "";
             tampildata();
             cmbPenggunaan();
+            cmbDenda();
+            cmbTarif();
             //autoIncrement();
         }
 
@@ -118,7 +120,7 @@ namespace pe_el_en
             try
 
             {
-                cmd = new MySqlCommand("select * from tagihan", conn);
+                cmd = new MySqlCommand("select * from penggunaan", conn);
                 rd = cmd.ExecuteReader();
                 while (rd.Read())
                 {
@@ -148,7 +150,7 @@ namespace pe_el_en
                 while (rd.Read())
                 {
                     string sName = rd.GetString(0);
-                    comboBox1.Items.Add(sName);
+                    comboBox2.Items.Add(sName);
                 }
             }
             catch (Exception g)
@@ -172,7 +174,7 @@ namespace pe_el_en
                 while (rd.Read())
                 {
                     string sName = rd.GetString(0);
-                    comboBox1.Items.Add(sName);
+                    comboBox3.Items.Add(sName);
                 }
             }
             catch (Exception g)
@@ -184,24 +186,24 @@ namespace pe_el_en
 
         }
 
-        void autoIncrement()
-        {
-            MySqlConnection conn = koneksi.GetKon();
-            conn.Open();
-            cmd = new MySqlCommand("select id_tagihan from tagihan order by id_tagihan desc", conn);
-            rd = cmd.ExecuteReader();
-            rd.Read();
-            if (rd.HasRows)
-            {
-                textBox1.Text = (Convert.ToInt32(rd[0].ToString()) + 1).ToString();
-            }
-            else
-            {
-                textBox1.Text = "1";
-            }
-            rd.Close();
-            conn.Close();
-        }
+        //void autoIncrement()
+        //{
+        //    MySqlConnection conn = koneksi.GetKon();
+        //    conn.Open();
+        //    cmd = new MySqlCommand("select id_tagihan from tagihan order by id_tagihan desc", conn);
+        //    rd = cmd.ExecuteReader();
+        //    rd.Read();
+        //    if (rd.HasRows)
+        //    {
+        //        textBox1.Text = (Convert.ToInt32(rd[0].ToString()) + 1).ToString();
+        //    }
+        //    else
+        //    {
+        //        textBox1.Text = "1";
+        //    }
+        //    rd.Close();
+        //    conn.Close();
+        //}
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -280,14 +282,14 @@ namespace pe_el_en
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            //DataGridViewRow row = this.dataGridView1.Rows[e.RowIndex];
-            //textBox1.Text = row.Cells[0].Value.ToString();
-            //textBox2.Text = row.Cells[1].Value.ToString();
-            //textBox3.Text = row.Cells[2].Value.ToString();
-            //textBox4.Text = row.Cells[3].Value.ToString();
-            //textBox5.Text = row.Cells[4].Value.ToString();
-            //comboBox1.Text = row.Cells[5].Value.ToString();
-            //textBox7.Text = row.Cells[6].Value.ToString();
+            DataGridViewRow row = this.dataGridView1.Rows[e.RowIndex];
+            textBox1.Text = row.Cells[0].Value.ToString();
+            comboBox2.Text = row.Cells[1].Value.ToString();
+            comboBox3.Text = row.Cells[2].Value.ToString();
+            textBox4.Text = row.Cells[3].Value.ToString();
+            textBox5.Text = row.Cells[4].Value.ToString();
+            comboBox1.Text = row.Cells[5].Value.ToString();
+            textBox7.Text = row.Cells[6].Value.ToString();
         }
 
         private void button5_Click(object sender, EventArgs e)

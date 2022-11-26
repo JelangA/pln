@@ -17,7 +17,7 @@ namespace pe_el_en
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new InputPenggunaan());
+            Application.Run(new Pembayaran());
         }
     }
 }

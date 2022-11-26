@@ -256,28 +256,27 @@ namespace pe_el_en
 
         private void button2_Click(object sender, EventArgs e)
         {
-            //try
-            //{
-            //    MySqlConnection conn = koneksi.GetKon();
-            //    conn.Open();
-            //    cmd = new MySqlCommand("update tagihan set id_tagihan ='" +
-            //               comboBox1.Text + "',id_penggunaan='" +
-            //               comboBox1.Text + "',id_tarif='" +
-            //               textBox2.Text + "',id_denda='" +
-            //               textBox3.Text + "',tanggal_bayar= '" +
-            //               textBox4.Text + "',jml_daya_terpakai= '" +
-            //               textBox5.Text + "',status= '" +
-            //               textBox7.Text + "'where id_tagihan= '" +
-            //               textBox1.Text + "'", conn);
-            //    cmd.ExecuteNonQuery();
-            //    MessageBox.Show("berhasil di edit");
-            //    conn.Close();
-            //    bersih();
-            //}
-            //catch (Exception x)
-            //{
-            //    MessageBox.Show(x.ToString());
-            //}
+            try
+            {
+                MySqlConnection conn = koneksi.GetKon();
+                conn.Open();
+                cmd = new MySqlCommand("update tagihan set id_penggunaan ='" +
+                           comboBox1.Text + "',id_tarif='" +
+                           comboBox2.Text + "',id_denda='" +
+                           comboBox3.Text + "',tanggal_bayar='" +
+                           textBox4.Text + "',jml_daya_terpakai='" +
+                           textBox5.Text + "',status='" +
+                           textBox7.Text + "'where id_tagihan= '" +
+                           textBox1.Text + "'", conn);
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("berhasil di edit");
+                conn.Close();
+                bersih();
+            }
+            catch (Exception x)
+            {
+                MessageBox.Show(x.ToString());
+            }
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)

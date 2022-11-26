@@ -1,8 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "IpHz3Kluwmdm8dtWKllS/2Sk9MnK8cgQVeXdKlIADudgMxxK+hzxLENxNfUg65RkRhrGMbcP2FdOqkq+MoeTIw==",
+  "dgSpecHash": "ZtOGcN2yzmMZIOMwS5IcCbqP6mtjWlkkPXkyZxC7sGc4di/diPJtfSLL0f3zc6jJw2PuIW74QN8zWsAaB787zg==",
   "success": true,
-  "projectFilePath": "D:\\jelang\\desktop\\pln\\pe_el_en\\pe_el_en\\pe_el_en.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "D:\\C#\\repos\\pln\\pe_el_en\\pe_el_en\\pe_el_en.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\user\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\3.1.26\\microsoft.netcore.app.host.win-x64.3.1.26.nupkg.sha512",
+    "C:\\Users\\user\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\3.1.10\\microsoft.aspnetcore.app.ref.3.1.10.nupkg.sha512",
+    "C:\\Users\\user\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\3.1.0\\microsoft.windowsdesktop.app.ref.3.1.0.nupkg.sha512",
+    "C:\\Users\\user\\.nuget\\packages\\microsoft.netcore.app.ref\\3.1.0\\microsoft.netcore.app.ref.3.1.0.nupkg.sha512"
+  ],
   "logs": []
 }

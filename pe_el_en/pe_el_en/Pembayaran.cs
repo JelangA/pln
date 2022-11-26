@@ -17,13 +17,12 @@ namespace pe_el_en
         DataSet ds;
         MySqlCommand cmd;
         MySqlDataAdapter da;
-        MySqlDataReader rd;
         public Pembayaran()
         {
             InitializeComponent();
         }
 
-        void tampildata()
+        void tampildataTagihan()
         {
             try
             {
@@ -34,8 +33,8 @@ namespace pe_el_en
                 ds = new DataSet();
                 da = new MySqlDataAdapter(cmd);
                 da.Fill(ds, "tagihan");
-                dataGridViewTarif.DataSource = ds;
-                dataGridViewDenda.DataMember = "tagihan";
+                dataGridViewTagihan.DataSource = ds;
+                dataGridViewTagihan.DataMember = "tagihan";
                 conn.Close();
 
             }
@@ -45,16 +44,97 @@ namespace pe_el_en
             }
         }
 
+        void tampildataPembayaran()
+        {
+            try
+            {
+
+                MySqlConnection conn = koneksi.GetKon();
+                conn.Open();
+                cmd = new MySqlCommand("select * from pembayaran", conn);
+                ds = new DataSet();
+                da = new MySqlDataAdapter(cmd);
+                da.Fill(ds, "pembayaran");
+                dataGridViewPembayaran.DataSource = ds;
+                dataGridViewPembayaran.DataMember = "pembayaran";
+                conn.Close();
+
+            }
+            catch (Exception x)
+            {
+                MessageBox.Show(x.ToString());
+            }
+        }
+
+        void bersih()
+        {
+            txtBiayaAdmin.Text = "";
+            txtIdDenda.Text = "";
+            txtIdTagihan.Text = "";
+            txtTotalBayar.Text = "";
+            tampildataTagihan();
+            tampildataPembayaran();
+        }
+
         private void Pembayaran_Load(object sender, EventArgs e)
         {
-
+            bersih();
         } 
 
         private void dataGridViewTarif_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            DataGridViewRow row = this.dataGridViewTarif.Rows[e.RowIndex];
-            txtIdtagihan.Text = row.Cells[0].Value.ToString();
+            DataGridViewRow row = this.dataGridViewTagihan.Rows[e.RowIndex];
+            txtIdTagihan.Text = row.Cells[0].Value.ToString();
 
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            new Admin().Show();
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                MySqlConnection conn = koneksi.GetKon();
+                conn.Open();
+                cmd = new MySqlCommand("insert into pembayaran values('" +
+                           dateTimePicker1.Text + "','" +
+                           txtIdTagihan.Text + "','" +
+                           dateTimePicker1.Text + "','" +
+                           txtBiayaAdmin.Text + "','" +
+                           txtTotalBayar.Text + "','" +
+                           comboBox1.Text + "')", conn);
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("berhasil di simpan");
+                conn.Close();
+                bersih();
+            }
+            catch (Exception x)
+            {
+                MessageBox.Show(x.ToString());
+            }
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                MySqlConnection conn = koneksi.GetKon();
+                conn.Open();
+                cmd = new MySqlCommand("delete from tarif where id_tarif='"
+                    + txtTDD.Text + "'", conn);
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("berhasil di delete");
+                conn.Close();
+                bersih();
+            }
+            catch (Exception x)
+            {
+                MessageBox.Show(x.ToString());
+            }
         }
     }
 }

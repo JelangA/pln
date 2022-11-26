@@ -1,11 +1,11 @@
-﻿using MySql.Data.MySqlClient;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using MySql.Data.MySqlClient;
 
 namespace pe_el_en
 {
-    class koneksi1
+    internal class Koneksi
     {
         public MySqlConnection GetKon()
         {
@@ -13,6 +13,5 @@ namespace pe_el_en
             conn.ConnectionString = "server=localhost;database=pln;username=root;password=";
             return conn;
         }
-
     }
 }

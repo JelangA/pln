@@ -135,8 +135,7 @@ namespace pe_el_en
                     txtPassword.Text + "'WHERE id_user='" + 
                     txtIdUser.Text + "'", conn);
                 cmd.ExecuteNonQuery();
-                cmd2 = new MySqlCommand("update pelanggan set nama_pelanggan='" +
-                           txtNama.Text + "',alamat='" +
+                cmd2 = new MySqlCommand("update pelanggan set nama_pelanggan='" + txtNama.Text + "',alamat='" +
                            txtAlamat.Text + "',nomor_kwh='" +
                            txtNoKwh.Text + "'where id_pelanggan='" +
                            txtId.Text + "'", conn);
